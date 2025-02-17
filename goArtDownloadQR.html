@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoArt Redirect</title>
+    <script>
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/tr/app/goart/id1550062249";
+            } else if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.roofstacks.goart&hl=en&pli=1";
+            } else {
+                document.getElementById("message").innerText = "Lütfen aşağıdaki linklerden uygun olanı seçin:";
+                document.getElementById("iosLink").style.display = "block";
+                document.getElementById("androidLink").style.display = "block";
+            }
+        };
+    </script>
+</head>
+<body>
+    <h2>GoArt Yönlendirme</h2>
+    <p id="message">Yönlendiriliyorsunuz...</p>
+    <a id="iosLink" href="https://apps.apple.com/tr/app/goart/id1550062249" style="display:none;">iOS için indirin</a>
+    <a id="androidLink" href="https://play.google.com/store/apps/details?id=com.roofstacks.goart&hl=en&pli=1" style="display:none;">Android için indirin</a>
+</body>
+</html>
